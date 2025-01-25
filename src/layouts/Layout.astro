@@ -10,12 +10,42 @@ const { title } = Astro.props;
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Sistema de rastreo GPS satelital para flotas. Monitoreo en tiempo real, seguimiento vehicular y control total de tus unidades. Cobertura nacional." />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="keywords" content="rastreo satelital, gps vehicular, monitoreo satelital, seguimiento vehicular, rastreo gps, control de flotas, localización satelital" />
+    <!-- SEO Meta Tags Básicos -->
+    <title>{title} | Sistema de Rastreo GPS Profesional</title>
+    <meta name="description" content="Sistema de rastreo GPS satelital para flotas. Monitoreo en tiempo real, seguimiento vehicular y control total de tus unidades. Cobertura nacional y servicio 24/7." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="rastreo satelital, gps vehicular, monitoreo satelital, seguimiento vehicular, rastreo gps, control de flotas, localización satelital, gps tracking, monitoreo de flotas, gps para camiones, rastreo de vehículos" />
+    <meta name="author" content="bysmax" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={Astro.url} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="Sistema de rastreo GPS satelital para flotas. Monitoreo en tiempo real y seguimiento vehicular profesional." />
+    <meta property="og:image" content="/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content="Sistema de rastreo GPS satelital para flotas. Monitoreo en tiempo real y seguimiento vehicular profesional." />
+    <meta property="twitter:image" content="/og-image.jpg" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Color del tema para móviles -->
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+
+    <!-- Generador -->
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
   </head>
   <body>
     <slot />

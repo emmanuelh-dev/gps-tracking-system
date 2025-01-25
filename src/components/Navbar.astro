@@ -4,25 +4,77 @@ import LanguagePicker from './LanguagePicker.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: `/${lang === 'es' ? '' : lang}/rastreo-satelital`, label: t('nav.tracking') },
+  { href: `/${lang === 'es' ? '' : lang}/control-combustible`, label: t('nav.fuel') },
+  { href: `/${lang === 'es' ? '' : lang}/seguridad-vehicular`, label: t('nav.security') },
+  { href: `/${lang === 'es' ? '' : lang}/#caracteristicas`, label: t('nav.features') },
+  { href: `/${lang === 'es' ? '' : lang}/#precios`, label: t('nav.pricing') },
+  { href: `/${lang === 'es' ? '' : lang}/#contacto`, label: t('nav.contact') },
+];
 ---
 <nav class="bg-white shadow-lg fixed w-full z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
       <div class="flex-shrink-0 flex items-center">
-        <a href="/" class="text-2xl font-bold text-primary">TransporteGPS</a>
+        <a href="/" class="text-2xl font-bold text-primary">bysmax</a>
       </div>
+
+      <!-- Mobile menu button -->
+      <div class="flex md:hidden items-center">
+        <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Desktop menu -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href={`/${lang === 'es' ? '' : lang}/rastreo-satelital`} class="text-gray-700 hover:text-primary">{t('nav.tracking')}</a>
-        <a href={`/${lang === 'es' ? '' : lang}/control-combustible`} class="text-gray-700 hover:text-primary">{t('nav.fuel')}</a>
-        <a href={`/${lang === 'es' ? '' : lang}/seguridad-vehicular`} class="text-gray-700 hover:text-primary">{t('nav.security')}</a>
-        <a href={`/${lang === 'es' ? '' : lang}/#caracteristicas`} class="text-gray-700 hover:text-primary">{t('nav.features')}</a>
-        <a href={`/${lang === 'es' ? '' : lang}/#precios`} class="text-gray-700 hover:text-primary">{t('nav.pricing')}</a>
-        <a href={`/${lang === 'es' ? '' : lang}/#contacto`} class="text-gray-700 hover:text-primary">{t('nav.contact')}</a>
+        {navItems.map(item => (
+          <a 
+            href={item.href} 
+            class={`text-gray-700 hover:text-primary ${currentPath === item.href ? 'text-primary font-semibold' : ''}`}
+          >
+            {item.label}
+          </a>
+        ))}
         <a href={`/${lang === 'es' ? '' : lang}/#demo`} class="bg-primary text-white px-4 py-2 hover:bg-secondary transition-colors">
           {t('nav.trial')}
         </a>
         <LanguagePicker />
       </div>
     </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu hidden md:hidden">
+      {navItems.map(item => (
+        <a 
+          href={item.href} 
+          class={`block px-4 py-2 text-gray-700 hover:text-primary ${currentPath === item.href ? 'text-primary font-semibold bg-gray-50' : ''}`}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href={`/${lang === 'es' ? '' : lang}/#demo`} class="block px-4 py-2 text-white bg-primary hover:bg-secondary">
+        {t('nav.trial')}
+      </a>
+      <div class="px-4 py-2">
+        <LanguagePicker />
+      </div>
+    </div>
   </div>
 </nav>
+
+<script>
+  // Toggle mobile menu
+  const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

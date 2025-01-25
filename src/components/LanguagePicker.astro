@@ -4,13 +4,26 @@ import { getLangFromUrl } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 ---
-<div class="flex items-center gap-2">
+<select 
+  class="text-sm bg-transparent border border-gray-300 rounded-md px-2 py-1"
+  onchange="window.location.href=this.value"
+>
   {Object.entries(languages).map(([code, name]) => (
-    <a
-      href={`/${code === 'es' ? '' : code}`}
-      class={`text-sm ${lang === code ? 'text-primary font-bold' : 'text-gray-600'}`}
+    <option 
+      value={`/${code === 'es' ? '' : code}`}
+      selected={lang === code}
     >
       {name}
-    </a>
+    </option>
   ))}
+</select>
+
+<script>
+  // Asegurarse que el select muestre la opción correcta al cargar
+  document.addEventListener('astro:page-load', () => {
+    const select = document.querySelector('select');
+    const currentPath = window.location.pathname;
+    select.value = currentPath.startsWith('/en') ? '/en' : '/';
+  });
+</script>
 </div>

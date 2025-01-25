@@ -8,12 +8,12 @@ const t = useTranslations(lang);
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { href: `/${lang === 'es' ? '' : lang}/rastreo-satelital`, label: t('nav.tracking') },
-  { href: `/${lang === 'es' ? '' : lang}/control-combustible`, label: t('nav.fuel') },
-  { href: `/${lang === 'es' ? '' : lang}/seguridad-vehicular`, label: t('nav.security') },
-  { href: `/${lang === 'es' ? '' : lang}/#caracteristicas`, label: t('nav.features') },
-  { href: `/${lang === 'es' ? '' : lang}/#precios`, label: t('nav.pricing') },
-  { href: `/${lang === 'es' ? '' : lang}/#contacto`, label: t('nav.contact') },
+  { href: `${lang === 'es' ? '' : lang}/rastreo-satelital`, label: t('nav.tracking') },
+  { href: `${lang === 'es' ? '' : lang}/control-combustible`, label: t('nav.fuel') },
+  { href: `${lang === 'es' ? '' : lang}/seguridad-vehicular`, label: t('nav.security') },
+  { href: `${lang === 'es' ? '' : lang}/#caracteristicas`, label: t('nav.features') },
+  { href: `${lang === 'es' ? '' : lang}/#precios`, label: t('nav.pricing') },
+  { href: `${lang === 'es' ? '' : lang}/#contacto`, label: t('nav.contact') },
 ];
 ---
 <nav class="bg-white shadow-lg fixed w-full z-50">
@@ -70,7 +70,6 @@ const navItems = [
 </nav>
 
 <script>
-  // Toggle mobile menu
   const mobileMenuButton = document.querySelector('.mobile-menu-button');
   const mobileMenu = document.querySelector('.mobile-menu');
 

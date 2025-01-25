@@ -4,8 +4,8 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-<section class="pt-24 pb-12 bg-primary">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="pt-24 pb-12 bg-primary ">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-40">
     <div class="text-center text-white">
       <h1 class="text-4xl md:text-6xl font-bold mb-6">
         {t('hero.title')}

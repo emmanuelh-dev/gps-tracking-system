@@ -1,0 +1,37 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const stats = [
+  {
+    number: "98%",
+    label: t('stats.satisfaction')
+  },
+  {
+    number: "500+",
+    label: t('stats.companies')
+  },
+  {
+    number: "50,000+",
+    label: t('stats.vehicles')
+  },
+  {
+    number: "24/7",
+    label: t('stats.support')
+  }
+];
+---
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {stats.map(stat => (
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary mb-2">{stat.number}</div>
+          <div class="text-gray-600">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

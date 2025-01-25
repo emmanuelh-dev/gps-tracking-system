@@ -1,0 +1,28 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import LanguagePicker from './LanguagePicker.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<nav class="bg-white shadow-lg fixed w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex-shrink-0 flex items-center">
+        <a href="/" class="text-2xl font-bold text-primary">TransporteGPS</a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href={`/${lang === 'es' ? '' : lang}/rastreo-satelital`} class="text-gray-700 hover:text-primary">{t('nav.tracking')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/control-combustible`} class="text-gray-700 hover:text-primary">{t('nav.fuel')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/seguridad-vehicular`} class="text-gray-700 hover:text-primary">{t('nav.security')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/#caracteristicas`} class="text-gray-700 hover:text-primary">{t('nav.features')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/#precios`} class="text-gray-700 hover:text-primary">{t('nav.pricing')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/#contacto`} class="text-gray-700 hover:text-primary">{t('nav.contact')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/#demo`} class="bg-primary text-white px-4 py-2 hover:bg-secondary transition-colors">
+          {t('nav.trial')}
+        </a>
+        <LanguagePicker />
+      </div>
+    </div>
+  </div>
+</nav>

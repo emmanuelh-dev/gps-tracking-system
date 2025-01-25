@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Sistema de rastreo GPS satelital para flotas. Monitoreo en tiempo real, seguimiento vehicular y control total de tus unidades. Cobertura nacional." />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="rastreo satelital, gps vehicular, monitoreo satelital, seguimiento vehicular, rastreo gps, control de flotas, localización satelital" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

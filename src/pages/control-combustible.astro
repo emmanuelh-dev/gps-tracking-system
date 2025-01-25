@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CTA from '../components/CTA.astro';
+
+const beneficios = [
+  {
+    titulo: "Monitoreo en Tiempo Real",
+    descripcion: "Control preciso del consumo de combustible con actualizaciones instantáneas."
+  },
+  {
+    titulo: "Detección de Fugas",
+    descripcion: "Sistema avanzado para identificar pérdidas y consumos irregulares."
+  },
+  {
+    titulo: "Reportes Detallados",
+    descripcion: "Análisis completo del rendimiento y consumo por vehículo."
+  },
+  {
+    titulo: "Alertas Automáticas",
+    descripcion: "Notificaciones inmediatas sobre consumos anormales o recargas."
+  }
+];
+---
+
+<Layout title="Control de Combustible - TransporteGPS">
+  <Navbar />
+  <main>
+    <section class="pt-32 pb-20 bg-primary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-white">
+          <h1 class="text-5xl font-bold mb-6">Control de Combustible Inteligente</h1>
+          <p class="text-xl mb-8 max-w-3xl">
+            Optimiza el consumo de combustible de tu flota con nuestro sistema de monitoreo en tiempo real.
+          </p>
+          <a href="#contacto" class="inline-block bg-white text-primary px-8 py-3 hover:bg-gray-100 transition-colors">
+            Solicitar Demostración
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-16">Beneficios del Control de Combustible</h2>
+        <div class="grid md:grid-cols-2 gap-12">
+          {beneficios.map(item => (
+            <div class="border-l-4 border-primary pl-6">
+              <h3 class="text-xl font-bold mb-2">{item.titulo}</h3>
+              <p class="text-gray-600">{item.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-8">Ahorra hasta un 30% en Costos de Combustible</h2>
+          <p class="text-xl text-gray-600 mb-12">
+            Nuestro sistema de control de combustible te permite identificar ineficiencias, prevenir fugas y optimizar el consumo de tu flota.
+          </p>
+          <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div class="text-4xl font-bold text-primary mb-2">30%</div>
+              <p class="text-gray-600">Reducción en Costos</p>
+            </div>
+            <div>
+              <div class="text-4xl font-bold text-primary mb-2">24/7</div>
+              <p class="text-gray-600">Monitoreo Continuo</p>
+            </div>
+            <div>
+              <div class="text-4xl font-bold text-primary mb-2">100%</div>
+              <p class="text-gray-600">Control Total</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTA />
+  </main>
+</Layout>

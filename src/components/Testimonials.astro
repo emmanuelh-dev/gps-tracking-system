@@ -1,0 +1,39 @@
+---
+const testimonials = [
+  {
+    name: "Carlos Rodríguez",
+    position: "Director de Operaciones",
+    company: "Transportes México",
+    content: "Desde que implementamos esta solución, hemos reducido nuestros costos operativos en un 30% y mejorado significativamente la satisfacción de nuestros clientes."
+  },
+  {
+    name: "Ana Martínez",
+    position: "Gerente de Logística",
+    company: "Express Cargo",
+    content: "La plataforma es increíblemente intuitiva y el soporte técnico es excepcional. Ha transformado completamente nuestra manera de gestionar la flota."
+  },
+  {
+    name: "Roberto Sánchez",
+    position: "CEO",
+    company: "Logística Integral",
+    content: "La mejor inversión que hemos hecho para nuestra empresa. El ROI fue evidente en los primeros meses de implementación."
+  }
+];
+---
+<section id="testimonios" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-16">Lo que Dicen Nuestros Clientes</h2>
+    <div class="grid md:grid-cols-3 gap-12">
+      {testimonials.map(testimonial => (
+        <div class="border-l-2 border-primary pl-6">
+          <p class="text-gray-600 mb-6 text-lg italic">"{testimonial.content}"</p>
+          <div>
+            <p class="font-semibold">{testimonial.name}</p>
+            <p class="text-sm text-gray-500">{testimonial.position}</p>
+            <p class="text-sm text-primary">{testimonial.company}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

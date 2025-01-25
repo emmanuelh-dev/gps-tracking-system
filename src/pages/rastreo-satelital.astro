@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CTA from '../components/CTA.astro';
+
+const caracteristicas = [
+  {
+    titulo: "Cobertura Global",
+    descripcion: "Seguimiento satelital con cobertura mundial las 24 horas del día."
+  },
+  {
+    titulo: "Precisión Garantizada",
+    descripcion: "Localización exacta con tecnología GPS de última generación."
+  },
+  {
+    titulo: "Plataforma Web y Móvil",
+    descripcion: "Acceso al sistema desde cualquier dispositivo, en cualquier momento."
+  },
+  {
+    titulo: "Reportes Avanzados",
+    descripcion: "Informes detallados de rutas, paradas y comportamiento vehicular."
+  }
+];
+
+const funciones = [
+  "Localización en tiempo real",
+  "Historial de recorridos",
+  "Geocercas y puntos de interés",
+  "Control de velocidad",
+  "Alertas de movimiento",
+  "Botón de pánico",
+  "Bloqueo remoto de motor",
+  "Reportes personalizados"
+];
+---
+
+<Layout title="Rastreo Satelital GPS | Seguimiento Vehicular en Tiempo Real">
+  <Navbar />
+  <main>
+    <section class="pt-32 pb-20 bg-primary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-white">
+          <h1 class="text-5xl font-bold mb-6">Sistema de Rastreo Satelital GPS</h1>
+          <p class="text-xl mb-8 max-w-3xl">
+            Monitoreo satelital avanzado para el seguimiento y control de tu flota vehicular en tiempo real.
+          </p>
+          <a href="#contacto" class="inline-block bg-white text-primary px-8 py-3 hover:bg-gray-100 transition-colors">
+            Solicitar Demostración
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-16">Características del Sistema</h2>
+        <div class="grid md:grid-cols-2 gap-12">
+          {caracteristicas.map(item => (
+            <div class="border-l-4 border-primary pl-6">
+              <h3 class="text-xl font-bold mb-2">{item.titulo}</h3>
+              <p class="text-gray-600">{item.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">Funcionalidades Principales</h2>
+            <ul class="space-y-4">
+              {funciones.map(funcion => (
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✓</span>
+                  {funcion}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-gray-800 p-8">
+            <div class="text-center text-white">
+              <h3 class="text-2xl font-bold mb-4">Beneficios del Rastreo GPS</h3>
+              <div class="grid grid-cols-2 gap-8">
+                <div>
+                  <div class="text-4xl font-bold text-primary mb-2">99.9%</div>
+                  <p>Precisión de Ubicación</p>
+                </div>
+                <div>
+                  <div class="text-4xl font-bold text-primary mb-2">24/7</div>
+                  <p>Monitoreo Continuo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTA />
+  </main>
+</Layout>

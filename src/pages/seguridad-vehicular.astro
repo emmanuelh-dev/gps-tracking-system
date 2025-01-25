@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CTA from '../components/CTA.astro';
+
+const caracteristicas = [
+  {
+    titulo: "Monitoreo de Conducción",
+    descripcion: "Análisis de patrones de conducción y comportamiento del conductor."
+  },
+  {
+    titulo: "Alertas de Seguridad",
+    descripcion: "Notificaciones inmediatas sobre eventos de riesgo y violaciones."
+  },
+  {
+    titulo: "Mantenimiento Preventivo",
+    descripcion: "Seguimiento del estado del vehículo y programación de servicios."
+  },
+  {
+    titulo: "Reportes de Incidentes",
+    descripcion: "Documentación detallada de eventos y análisis de riesgos."
+  }
+];
+---
+
+<Layout title="Seguridad Vehicular - TransporteGPS">
+  <Navbar />
+  <main>
+    <section class="pt-32 pb-20 bg-primary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-white">
+          <h1 class="text-5xl font-bold mb-6">Seguridad Vehicular Avanzada</h1>
+          <p class="text-xl mb-8 max-w-3xl">
+            Protege tu flota y conductores con nuestro sistema integral de seguridad vehicular.
+          </p>
+          <a href="#contacto" class="inline-block bg-white text-primary px-8 py-3 hover:bg-gray-100 transition-colors">
+            Conocer Más
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-16">Características de Seguridad</h2>
+        <div class="grid md:grid-cols-2 gap-12">
+          {caracteristicas.map(item => (
+            <div class="border-l-4 border-primary pl-6">
+              <h3 class="text-xl font-bold mb-2">{item.titulo}</h3>
+              <p class="text-gray-600">{item.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">Prevención de Accidentes</h2>
+            <p class="text-xl text-gray-600 mb-8">
+              Nuestro sistema de seguridad vehicular ayuda a prevenir accidentes mediante:
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span>
+                Monitoreo de velocidad en tiempo real
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span>
+                Detección de frenados bruscos
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span>
+                Análisis de comportamiento del conductor
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span>
+                Alertas de fatiga y distracción
+              </li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 p-8">
+            <div class="text-center text-white">
+              <h3 class="text-2xl font-bold mb-4">Estadísticas de Seguridad</h3>
+              <div class="grid grid-cols-2 gap-8">
+                <div>
+                  <div class="text-4xl font-bold text-primary mb-2">-45%</div>
+                  <p>Reducción de Accidentes</p>
+                </div>
+                <div>
+                  <div class="text-4xl font-bold text-primary mb-2">+60%</div>
+                  <p>Mejora en Conducción</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTA />
+  </main>
+</Layout>

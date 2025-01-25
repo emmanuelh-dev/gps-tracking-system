@@ -1,0 +1,38 @@
+---
+const features = [
+  {
+    title: "Monitoreo en Tiempo Real",
+    description: "Rastrea la ubicación, velocidad y rutas de tus vehículos en tiempo real para tomar decisiones informadas.",
+    icon: "🛰️"
+  },
+  {
+    title: "Optimización de Rutas",
+    description: "Reduce tiempos de viaje y costos de combustible con herramientas avanzadas de planificación.",
+    icon: "🗺️"
+  },
+  {
+    title: "Protección de Activos",
+    description: "Asegura tu flota con geocercas y alertas de uso no autorizado.",
+    icon: "🔒"
+  },
+  {
+    title: "Mantenimiento Preventivo",
+    description: "Monitorea diagnósticos del vehículo y programa mantenimientos para reducir tiempos muertos.",
+    icon: "🔧"
+  }
+];
+---
+<section id="caracteristicas" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold mb-16 text-center">Soluciones Completas de Gestión de Flotas</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+      {features.map(feature => (
+        <div class="text-center">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="text-xl font-semibold mb-3">{feature.title}</h3>
+          <p class="text-gray-600">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

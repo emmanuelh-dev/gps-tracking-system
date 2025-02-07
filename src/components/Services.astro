@@ -1,0 +1,38 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const services = [
+  {
+    icon: '🌐',
+    title: t('services.platform.title'),
+    description: t('services.platform.desc')
+  },
+  {
+    icon: '📱',
+    title: t('services.rental.title'),
+    description: t('services.rental.desc')
+  },
+  {
+    icon: '💻',
+    title: t('services.development.title'),
+    description: t('services.development.desc')
+  }
+];
+---
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-16">{t('services.title')}</h2>
+    <div class="grid md:grid-cols-3 gap-12">
+      {services.map(service => (
+        <div class="text-center group hover:bg-gray-50 p-8 rounded-lg transition-colors">
+          <div class="text-4xl mb-4 transform group-hover:scale-110 transition-transform">{service.icon}</div>
+          <h3 class="text-xl font-semibold mb-4">{service.title}</h3>
+          <p class="text-gray-600">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

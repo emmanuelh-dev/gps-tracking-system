@@ -7,209 +7,148 @@ const t = useTranslations(lang);
 ---
 
 <nav class="bg-white shadow-lg fixed w-full z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto px-4">
+    <!-- Desktop y Logo -->
     <div class="flex justify-between h-16">
-      <div class="flex-shrink-0 flex items-center">
+      <div class="flex items-center">
         <a href="/" class="text-2xl font-bold text-primary">TransporteGPS</a>
       </div>
-      
+
       <!-- Desktop Menu -->
       <div class="hidden lg:flex items-center space-x-4">
         <div class="relative group">
-          <button 
-            class="text-gray-700 hover:text-primary py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
-            aria-expanded="false"
-            aria-haspopup="true"
-          >
+          <button class="text-gray-700 hover:text-primary px-3 py-2">
             {t('nav.services')}
-            <svg class="w-4 h-4 ml-1 inline-block transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 ml-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
-          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out transform origin-top-left group-hover:translate-y-0 translate-y-1">
-            <div class="py-1 rounded-md bg-white ring-1 ring-black ring-opacity-5">
-              <a href={`/${lang === 'es' ? '' : lang}/rastreo-satelital`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">{t('nav.tracking')}</a>
-              <a href={`/${lang === 'es' ? '' : lang}/control-combustible`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">{t('nav.fuel')}</a>
-              <a href={`/${lang === 'es' ? '' : lang}/seguridad-vehicular`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">{t('nav.security')}</a>
-            </div>
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden group-hover:block">
+            <a href={`/${lang === 'es' ? '' : lang}/rastreo-satelital`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t('nav.tracking')}</a>
+            <a href={`/${lang === 'es' ? '' : lang}/control-combustible`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t('nav.fuel')}</a>
+            <a href={`/${lang === 'es' ? '' : lang}/seguridad-vehicular`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t('nav.security')}</a>
           </div>
         </div>
-        
-        <a href={`/${lang === 'es' ? '' : lang}/#caracteristicas`} class="text-gray-700 hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-gray-50">{t('nav.features')}</a>
-        <a href={`/${lang === 'es' ? '' : lang}/#precios`} class="text-gray-700 hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-gray-50">{t('nav.pricing')}</a>
-        <a href={`/${lang === 'es' ? '' : lang}/#contacto`} class="text-gray-700 hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-gray-50">{t('nav.contact')}</a>
-        <a href="/acceso" class="text-primary font-semibold hover:text-secondary transition-colors px-3 py-2 rounded-md hover:bg-gray-50">{t('nav.access')}</a>
-        <a href="/demo" class="bg-secondary text-white px-4 py-2 hover:bg-secondary/90 transition-colors rounded-md focus:ring-2 focus:ring-secondary focus:ring-offset-2">{t('nav.demo')}</a>
-        <a href={`/${lang === 'es' ? '' : lang}/#demo`} class="bg-primary text-white px-4 py-2 hover:bg-primary/90 transition-colors rounded-md focus:ring-2 focus:ring-primary focus:ring-offset-2">
+
+        <a href={`/${lang === 'es' ? '' : lang}/#caracteristicas`} class="text-gray-700 hover:text-primary px-3 py-2">{t('nav.features')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/#precios`} class="text-gray-700 hover:text-primary px-3 py-2">{t('nav.pricing')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/#contacto`} class="text-gray-700 hover:text-primary px-3 py-2">{t('nav.contact')}</a>
+        <a href="/acceso" class="text-primary hover:text-secondary px-3 py-2">{t('nav.access')}</a>
+        <a href="/demo" class="bg-secondary text-white px-4 py-2 rounded hover:bg-secondary/90">{t('nav.demo')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/#demo`} class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/90">
           {t('nav.trial')}
         </a>
         <LanguagePicker />
       </div>
 
-      <!-- Mobile menu button -->
-      <button 
-        id="mobile-menu-button" 
-        class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors"
-        aria-controls="mobile-menu"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Open main menu</span>
-        <div class="w-6 h-6 flex flex-col justify-around">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </div>
+      <!-- Botón Mobile -->
+      <button id="menuButton" class="lg:hidden p-2 rounded-md text-gray-700 hover:text-primary hover:bg-gray-100">
+        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+          <path id="menuIcon" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
       </button>
     </div>
-  </div>
-  
-  <!-- Mobile menu -->
-  <div 
-    id="mobile-menu" 
-    class="lg:hidden bg-white overflow-hidden transition-all duration-300 ease-in-out max-h-0"
-    aria-hidden="true"
-  >
-    <div class="px-2 pt-2 pb-3 space-y-1">
-      <div class="relative" id="mobile-services-menu">
-        <button 
-          class="w-full text-left px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-          aria-expanded="false"
-          aria-controls="mobile-services-submenu"
-        >
-          {t('nav.services')}
-          <svg class="w-4 h-4 ml-1 inline-block transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div 
-          id="mobile-services-submenu" 
-          class="hidden pl-4 space-y-1 mt-1"
-          role="menu"
-        >
-          <a href={`/${lang === 'es' ? '' : lang}/rastreo-satelital`} class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors" role="menuitem">{t('nav.tracking')}</a>
-          <a href={`/${lang === 'es' ? '' : lang}/control-combustible`} class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors" role="menuitem">{t('nav.fuel')}</a>
-          <a href={`/${lang === 'es' ? '' : lang}/seguridad-vehicular`} class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors" role="menuitem">{t('nav.security')}</a>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <!-- Servicios Dropdown Mobile -->
+        <div class="relative">
+          <button id="servicesButton" class="w-full text-left px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded">
+            {t('nav.services')}
+            <svg class="w-4 h-4 ml-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="servicesDropdown" class="hidden px-4">
+            <a href={`/${lang === 'es' ? '' : lang}/rastreo-satelital`} class="block py-2 text-gray-700 hover:text-primary">{t('nav.tracking')}</a>
+            <a href={`/${lang === 'es' ? '' : lang}/control-combustible`} class="block py-2 text-gray-700 hover:text-primary">{t('nav.fuel')}</a>
+            <a href={`/${lang === 'es' ? '' : lang}/seguridad-vehicular`} class="block py-2 text-gray-700 hover:text-primary">{t('nav.security')}</a>
+          </div>
         </div>
-      </div>
-      <a href={`/${lang === 'es' ? '' : lang}/#caracteristicas`} class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">{t('nav.features')}</a>
-      <a href={`/${lang === 'es' ? '' : lang}/#precios`} class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">{t('nav.pricing')}</a>
-      <a href={`/${lang === 'es' ? '' : lang}/#contacto`} class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">{t('nav.contact')}</a>
-      <a href="/acceso" class="block px-3 py-2 text-primary font-semibold hover:text-secondary hover:bg-gray-50 rounded-md transition-colors">{t('nav.access')}</a>
-      <a href="/demo" class="block px-3 py-2 bg-secondary text-white hover:bg-secondary/90 transition-colors rounded-md">{t('nav.demo')}</a>
-      <a href={`/${lang === 'es' ? '' : lang}/#demo`} class="block px-3 py-2 bg-primary text-white hover:bg-primary/90 transition-colors rounded-md">
-        {t('nav.trial')}
-      </a>
-      <div class="px-3 py-2">
-        <LanguagePicker />
+
+        <a href={`/${lang === 'es' ? '' : lang}/#caracteristicas`} class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded">{t('nav.features')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/#precios`} class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded">{t('nav.pricing')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/#contacto`} class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded">{t('nav.contact')}</a>
+        <a href="/acceso" class="block px-3 py-2 text-primary hover:text-secondary hover:bg-gray-100 rounded">{t('nav.access')}</a>
+        <a href="/demo" class="block px-3 py-2 bg-secondary text-white hover:bg-secondary/90 rounded">{t('nav.demo')}</a>
+        <a href={`/${lang === 'es' ? '' : lang}/#demo`} class="block px-3 py-2 bg-primary text-white hover:bg-primary/90 rounded">
+          {t('nav.trial')}
+        </a>
+        <div class="px-3 py-2">
+          <LanguagePicker />
+        </div>
       </div>
     </div>
   </div>
 </nav>
 
-<style>
-  .hamburger-line {
-    @apply w-full h-0.5 bg-current transform transition-all duration-300 ease-in-out;
-  }
-
-  .mobile-menu-open .hamburger-line:nth-child(1) {
-    @apply rotate-45 translate-y-1.5;
-  }
-
-  .mobile-menu-open .hamburger-line:nth-child(2) {
-    @apply opacity-0;
-  }
-
-  .mobile-menu-open .hamburger-line:nth-child(3) {
-    @apply -rotate-45 -translate-y-1.5;
-  }
-</style>
-
 <script>
-  let isMenuOpen = false;
-  let isServicesOpen = false;
+  // Elementos del DOM
+  const menuButton = document.getElementById('menuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+  const closeIcon = document.getElementById('closeIcon');
+  const servicesButton = document.getElementById('servicesButton');
+  const servicesDropdown = document.getElementById('servicesDropdown');
 
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileServicesMenu = document.getElementById('mobile-services-menu');
-  const mobileServicesSubmenu = document.getElementById('mobile-services-submenu');
-  const servicesButton = mobileServicesMenu?.querySelector('button');
-
+  // Toggle Menu Principal
   function toggleMenu() {
-    if (!mobileMenu || !mobileMenuButton) return;
-    
-    isMenuOpen = !isMenuOpen;
-    const menuHeight = mobileMenu.scrollHeight;
-    
-    mobileMenu.style.maxHeight = isMenuOpen ? `${menuHeight}px` : '0';
-    mobileMenu.setAttribute('aria-hidden', (!isMenuOpen).toString());
-    mobileMenuButton.setAttribute('aria-expanded', isMenuOpen.toString());
-    mobileMenuButton.classList.toggle('mobile-menu-open');
-    
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
-    
-    if (!isMenuOpen) {
-      closeServicesSubmenu();
-    }
-  }
-
-  function toggleServicesSubmenu(event?: Event) {
-    if (!mobileServicesSubmenu || !servicesButton) return;
-    
-    if (event) {
-      event.stopPropagation();
-    }
-    
-    isServicesOpen = !isServicesOpen;
-    mobileServicesSubmenu.classList.toggle('hidden');
-    servicesButton.setAttribute('aria-expanded', isServicesOpen.toString());
-    
-    if (isMenuOpen) {
-      const submenuHeight = mobileServicesSubmenu.scrollHeight;
-      const menuHeight = mobileMenu?.scrollHeight ?? 0;
-      if (mobileMenu) {
-        mobileMenu.style.maxHeight = `${menuHeight + (isServicesOpen ? submenuHeight : -submenuHeight)}px`;
+    if (mobileMenu && menuIcon && closeIcon) {
+      const isMenuHidden = mobileMenu.classList.contains('hidden');
+      
+      // Toggle menú
+      mobileMenu.classList.toggle('hidden');
+      
+      // Toggle iconos
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      
+      // Si estamos cerrando el menú principal, también cerramos el dropdown
+      if (!isMenuHidden && servicesDropdown) {
+        servicesDropdown.classList.add('hidden');
       }
     }
   }
 
-  function closeServicesSubmenu() {
-    if (!mobileServicesSubmenu || !servicesButton || !isServicesOpen) return;
-    
-    isServicesOpen = false;
-    mobileServicesSubmenu.classList.add('hidden');
-    servicesButton.setAttribute('aria-expanded', 'false');
+  // Toggle Servicios Dropdown
+  function toggleServices(e: Event) {
+    e.stopPropagation();
+    if (servicesDropdown) {
+      servicesDropdown.classList.toggle('hidden');
+    }
   }
 
   // Event Listeners
-  mobileMenuButton?.addEventListener('click', toggleMenu);
-  servicesButton?.addEventListener('click', toggleServicesSubmenu);
+  menuButton?.addEventListener('click', toggleMenu);
+  servicesButton?.addEventListener('click', toggleServices);
 
-  // Close menu when clicking outside
+  // Cerrar al hacer click fuera
   document.addEventListener('click', (e) => {
-    if (isMenuOpen && 
-        mobileMenu && 
+    if (mobileMenu && 
         !mobileMenu.contains(e.target as Node) && 
-        e.target !== mobileMenuButton) {
-      toggleMenu();
-    }
-  });
-
-  // Handle escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (isServicesOpen) {
-        closeServicesSubmenu();
-      } else if (isMenuOpen) {
-        toggleMenu();
+        menuButton && 
+        !menuButton.contains(e.target as Node)) {
+      mobileMenu.classList.add('hidden');
+      if (menuIcon && closeIcon) {
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
       }
     }
   });
 
-  // Handle resize
+  // Cerrar al redimensionar
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1024 && isMenuOpen) {
-      toggleMenu();
+    if (window.innerWidth >= 1024 && mobileMenu) {
+      mobileMenu.classList.add('hidden');
+      if (menuIcon && closeIcon) {
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+      if (servicesDropdown) {
+        servicesDropdown.classList.add('hidden');
+      }
     }
   });
 </script>

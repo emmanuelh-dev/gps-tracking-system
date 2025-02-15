@@ -1,0 +1,171 @@
+---
+import { Image } from 'astro:assets';
+import replay from "../../src/assets/replay-page.png";
+
+const features = [
+  {
+    title: "GPS EN TIEMPO REAL",
+  },
+  {
+    title: "OPTIMIZACIÓN",
+  },
+  {
+    title: "PRODUCTIVIDAD",
+  },
+  {
+    title: "PROTECCIÓN",
+  },
+];
+
+const sections = [
+  {
+    tag: "GPS EN TIEMPO REAL",
+    title: "Rastreo y geocercas de primera clase",
+    description:
+      "El rastreo por GPS y los parámetros inteligentes de geocercas ayudan a los gerentes de operaciones a mejorar el movimiento de carga y entregar en mejor servicio al cliente.",
+    links: ["Rastreo de vehículos y remolques por GPS >"],
+    stats: ["80% de reducción en errores de salida"],
+    image: replay,
+    logo: "/placeholder.svg",
+  },
+  {
+    tag: "OPTIMIZACIÓN",
+    title: "Diagnóstico avanzado de vehículos",
+    description:
+      "Resuelva oportunidades para mejorar los resultados operativos con información detallada sobre el rendimiento de los vehículos y alertifique los problemas de mantenimiento.",
+    links: ["Mantenimiento de la flota >", "Inspecciones vehiculares >"],
+    stats: ["Reducción del costo de los vehículos en un 30%"],
+    image: replay,
+    logo: "/placeholder.svg",
+  },
+  {
+    tag: "PRODUCTIVIDAD",
+    title: "Flujos de trabajo automatizados para reducir las tareas diarias",
+    description:
+      "Aplique la comunicación entre los choferes y la administración para mejorar la eficiencia y la automatización para mejorar la productividad de la flota.",
+    links: ["Gestión de conductores >", "Fleet App >", "Alertas y reportes >"],
+    stats: ["40 horas de trabajo manual ahorradas por semana"],
+    image: replay,
+    logo: "/placeholder.svg",
+  },
+  {
+    tag: "PROTECCIÓN",
+    title: "Herramientas para la seguridad patrimonial",
+    description:
+      "Tome acción en el momento adecuado. Define zonas de riesgo y active las alertas por desviación de ruta, paradas no autorizadas y movimientos fuera del horario de trabajo.",
+    links: ["Botón de Pánico >", "Inmovilizador de Motor 2.0 >"],
+    image: replay,
+  },
+];
+---
+
+<main class="min-h-screen">
+  {/* Hero Section */}
+  <section class="container mx-auto px-4 py-12 md:py-16">
+    <div class="grid gap-8 md:grid-cols-2 items-center">
+      <div class="space-y-4">
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight">
+          Estrategias clave para la eficiencia de las operaciones de última
+          milla en México
+        </h1>
+        <p class="text-gray-600">
+          En esta presentación general, encontrará estrategias para reducir
+          costos, mantener al día todos los activos, y mejorar la eficiencia
+          operativa en el competitivo entorno de la logística de última milla.
+        </p>
+        <button
+          class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium"
+        >
+          SABER MÁS
+        </button>
+      </div>
+      <div class="relative h-[300px] rounded-lg overflow-hidden">
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1screencapture-samsara-mx-products-flota-2025-02-14-22_25_53.jpg-D4T9NEXmtVV3mc3unHNB9axxjrdss0.jpeg"
+          alt="Mapa satelital"
+          width={900}
+          height={643}
+          class="object-cover"
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* Features Section */}
+  <section class="bg-gray-50 py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-center text-2xl font-semibold mb-8">
+        Tecnología que va <span class="text-blue-600">más allá del rastreo</span
+        > por GPS
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {
+          features.map((feature, index) => (
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <p class="font-medium text-sm">{feature.title}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* Content Sections */}
+  <section class="py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid gap-16">
+        {
+          sections.map((section, index) => (
+            <div
+              class={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}
+            >
+              <div
+                class={`space-y-4 ${index % 2 === 1 ? "md:col-start-2" : ""}`}
+              >
+                <div class="flex items-center gap-2 text-blue-600">
+                  {/* Assuming you want a generic icon for each section */}
+                  <span class="w-5 h-5 bg-gray-300 rounded-full" />
+                  <span class="font-medium text-sm">{section.tag}</span>
+                </div>
+                <h3 class="text-2xl font-bold">{section.title}</h3>
+                <p class="text-gray-600">{section.description}</p>
+                <div class="space-y-2">
+                  {section.links?.map((link, i) => (
+                    <a href="#" class="block text-blue-600 hover:underline">
+                      {link}
+                    </a>
+                  ))}
+                </div>
+                {section.stats?.map((stat, i) => (
+                  <div class="text-sm font-medium">{stat}</div>
+                ))}
+                {section.logo && (
+                  <div class="relative h-8 w-32">
+                    <Image
+                      width={900}
+                      height={643}
+                      src={section.logo || "/placeholder.svg"}
+                      alt="Logo"
+                      class="object-contain"
+                    />
+                  </div>
+                )}
+              </div>
+              <div
+                class={`relative rounded-lg overflow-hidden ${index % 2 === 1 ? "md:col-start-1" : ""}`}
+              >
+                <Image
+                  width={900}
+                  height={643}
+                  src={section.image}
+                  alt={section.title}
+                  class="object-cover"
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</main>

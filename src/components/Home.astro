@@ -1,58 +1,50 @@
 ---
 import { Image } from 'astro:assets';
 import replay from "../../src/assets/replay-page.png";
-
+import hero from "../../src/assets/hero.png";
 const features = [
-  {
-    title: "GPS EN TIEMPO REAL",
-  },
-  {
-    title: "OPTIMIZACIÓN",
-  },
-  {
-    title: "PRODUCTIVIDAD",
-  },
-  {
-    title: "PROTECCIÓN",
-  },
+  { title: "GPS EN TIEMPO REAL" },
+  { title: "OPTIMIZACIÓN" },
+  { title: "PRODUCTIVIDAD" },
+  { title: "PROTECCIÓN" },
 ];
 
 const sections = [
   {
     tag: "GPS EN TIEMPO REAL",
-    title: "Rastreo y geocercas de primera clase",
+    title: "Rastreo y geocercas. Sin complicaciones.",
     description:
-      "El rastreo por GPS y los parámetros inteligentes de geocercas ayudan a los gerentes de operaciones a mejorar el movimiento de carga y entregar en mejor servicio al cliente.",
-    links: ["Rastreo de vehículos y remolques por GPS >"],
-    stats: ["80% de reducción en errores de salida"],
+      "Mejora el movimiento de carga y el servicio al cliente con rastreo GPS y geocercas inteligentes. Simple, rápido y preciso.",
+    links: ["Explora el rastreo GPS >"],
+    stats: ["80% menos errores de salida"],
     image: replay,
     logo: "/placeholder.svg",
   },
   {
     tag: "OPTIMIZACIÓN",
-    title: "Diagnóstico avanzado de vehículos",
+    title: "Diagnóstico de vehículos al instante",
     description:
-      "Resuelva oportunidades para mejorar los resultados operativos con información detallada sobre el rendimiento de los vehículos y alertifique los problemas de mantenimiento.",
-    links: ["Mantenimiento de la flota >", "Inspecciones vehiculares >"],
-    stats: ["Reducción del costo de los vehículos en un 30%"],
+      "Obtén insights sobre el rendimiento de tus vehículos y anticipa problemas de mantenimiento. Datos en tiempo real para decisiones inmediatas.",
+    links: ["Mantenimiento inteligente >", "Inspecciones simplificadas >"],
+    stats: ["30% de reducción en costos de vehículos"],
     image: replay,
     logo: "/placeholder.svg",
   },
   {
     tag: "PRODUCTIVIDAD",
-    title: "Flujos de trabajo automatizados para reducir las tareas diarias",
+    title: "Automatización que funciona",
     description:
-      "Aplique la comunicación entre los choferes y la administración para mejorar la eficiencia y la automatización para mejorar la productividad de la flota.",
+      "Optimiza la comunicación entre conductores y administración. Flujos de trabajo automatizados que realmente ahorran tiempo.",
     links: ["Gestión de conductores >", "Fleet App >", "Alertas y reportes >"],
-    stats: ["40 horas de trabajo manual ahorradas por semana"],
+    stats: ["40 horas/semana de trabajo manual eliminadas"],
     image: replay,
     logo: "/placeholder.svg",
   },
   {
     tag: "PROTECCIÓN",
-    title: "Herramientas para la seguridad patrimonial",
+    title: "Seguridad sin esfuerzo",
     description:
-      "Tome acción en el momento adecuado. Define zonas de riesgo y active las alertas por desviación de ruta, paradas no autorizadas y movimientos fuera del horario de trabajo.",
+      "Define zonas de riesgo y activa alertas inteligentes. Protege tu flota sin complicaciones.",
     links: ["Botón de Pánico >", "Inmovilizador de Motor 2.0 >"],
     image: replay,
   },
@@ -61,28 +53,25 @@ const sections = [
 
 <main class="min-h-screen">
   {/* Hero Section */}
-  <section class="container mx-auto px-4 py-12 md:py-16">
-    <div class="grid gap-8 md:grid-cols-2 items-center">
-      <div class="space-y-4">
-        <h1 class="text-3xl md:text-4xl font-bold leading-tight">
-          Estrategias clave para la eficiencia de las operaciones de última
-          milla en México
+  <section class="container mx-auto px-4 py-20">
+    <div class="grid gap-12 md:grid-cols-2 items-center">
+      <div class="space-y-6">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+            Estrategias clave para la máxima eficiencia.
         </h1>
-        <p class="text-gray-600">
-          En esta presentación general, encontrará estrategias para reducir
-          costos, mantener al día todos los activos, y mejorar la eficiencia
-          operativa en el competitivo entorno de la logística de última milla.
+        <p class="text-lg text-gray-400">
+          Optimiza costos, maximiza activos y domina la logística de última milla. Sin complicaciones.
         </p>
         <button
-          class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium"
+          class="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition duration-300"
         >
-          SABER MÁS
+          Empieza ahora
         </button>
       </div>
       <div class="relative h-[300px] rounded-lg overflow-hidden">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1screencapture-samsara-mx-products-flota-2025-02-14-22_25_53.jpg-D4T9NEXmtVV3mc3unHNB9axxjrdss0.jpeg"
-          alt="Mapa satelital"
+          src={hero}
+          alt="Mapa de logística en tiempo real"
           width={900}
           height={643}
           class="object-cover"
@@ -92,17 +81,16 @@ const sections = [
   </section>
 
   {/* Features Section */}
-  <section class="bg-gray-50 py-12">
+  <section class="py-20">
     <div class="container mx-auto px-4">
-      <h2 class="text-center text-2xl font-semibold mb-8">
-        Tecnología que va <span class="text-blue-600">más allá del rastreo</span
-        > por GPS
+      <h2 class="text-center text-3xl font-bold mb-12">
+        Más que GPS. Una plataforma completa.
       </h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         {
-          features.map((feature, index) => (
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-              <p class="font-medium text-sm">{feature.title}</p>
+          features.map((feature) => (
+            <div class="p-6 rounded-lg border border-gray-800">
+              <p class="font-medium">{feature.title}</p>
             </div>
           ))
         }
@@ -111,33 +99,27 @@ const sections = [
   </section>
 
   {/* Content Sections */}
-  <section class="py-12">
+  <section class="py-20">
     <div class="container mx-auto px-4">
-      <div class="grid gap-16">
+      <div class="space-y-24">
         {
           sections.map((section, index) => (
-            <div
-              class={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}
-            >
-              <div
-                class={`space-y-4 ${index % 2 === 1 ? "md:col-start-2" : ""}`}
-              >
-                <div class="flex items-center gap-2 text-blue-600">
-                  {/* Assuming you want a generic icon for each section */}
-                  <span class="w-5 h-5 bg-gray-300 rounded-full" />
-                  <span class="font-medium text-sm">{section.tag}</span>
+            <div class={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}>
+              <div class={`space-y-6 ${index % 2 === 1 ? "md:col-start-2" : ""}`}>
+                <div class="inline-block px-3 py-1 rounded-full bg-primary text-white text-sm font-medium">
+                  {section.tag}
                 </div>
-                <h3 class="text-2xl font-bold">{section.title}</h3>
-                <p class="text-gray-600">{section.description}</p>
-                <div class="space-y-2">
-                  {section.links?.map((link, i) => (
-                    <a href="#" class="block text-blue-600 hover:underline">
+                <h3 class="text-3xl font-bold">{section.title}</h3>
+                <p class="text-gray-400 text-lg">{section.description}</p>
+                <div class="space-y-3">
+                  {section.links?.map((link) => (
+                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium block">
                       {link}
                     </a>
                   ))}
                 </div>
-                {section.stats?.map((stat, i) => (
-                  <div class="text-sm font-medium">{stat}</div>
+                {section.stats?.map((stat) => (
+                  <div class="text-2xl font-bold text-green-400">{stat}</div>
                 ))}
                 {section.logo && (
                   <div class="relative h-8 w-32">
@@ -151,9 +133,7 @@ const sections = [
                   </div>
                 )}
               </div>
-              <div
-                class={`relative rounded-lg overflow-hidden ${index % 2 === 1 ? "md:col-start-1" : ""}`}
-              >
+              <div class={`relative rounded-lg overflow-hidden ${index % 2 === 1 ? "md:col-start-1" : ""}`}>
                 <Image
                   width={900}
                   height={643}
@@ -169,3 +149,4 @@ const sections = [
     </div>
   </section>
 </main>
+

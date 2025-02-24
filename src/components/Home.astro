@@ -95,8 +95,8 @@ const sections = [
     image: replay,
   },
 ];
-
 ---
+
 <main class="min-h-screen">
   {/* Hero Section */}
   <section class="container mx-auto px-4 py-20">
@@ -106,9 +106,12 @@ const sections = [
           Estrategias clave para la máxima eficiencia.
         </h1>
         <p class="text-lg text-gray-400">
-          Optimiza costos, maximiza activos y domina la logística de última milla. Sin complicaciones.
+          Optimiza costos, maximiza activos y domina la logística de última
+          milla. Sin complicaciones.
         </p>
-        <button class="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition duration-300">
+        <button
+          class="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition duration-300"
+        >
           Empieza ahora
         </button>
       </div>
@@ -131,70 +134,77 @@ const sections = [
         Información confiable y datos que te ayudan a tomar decisiones.
       </h2>
       <div class="grid lg:grid-cols-5 md:grid-cols-5 gap-6">
-        {features.map((feature) => (
-          <a
-            href={`#${feature.id}`}
-            class="flex lg:flex-col justify-between items-center lg:justify-center lg:text-center"
-          >
-            <div class="flex lg:flex-col lg:justify-center items-center">
-              <div class="p-4">
-                <feature.icon className="text-primary" size={32} />
+        {
+          features.map((feature) => (
+            <a
+              href={`#${feature.id}`}
+              class="flex lg:flex-col justify-between items-center lg:justify-center lg:text-center"
+            >
+              <div class="flex lg:flex-col lg:justify-center items-center">
+                <div class="p-4">
+                  <feature.icon className="text-primary" size={32} />
+                </div>
+                <p class="font-medium">{feature.title}</p>
               </div>
-              <p class="font-medium">{feature.title}</p>
-            </div>
-            <div class="p-4">
-              <IconCornerRightDown className="lg:hidden" size="28" />
-              <IconArrowDown className="hidden lg:block" size="28" />
-            </div>
-          </a>
-        ))}
+              <div class="p-4">
+                <IconCornerRightDown className="lg:hidden" size="28" />
+                <IconArrowDown className="hidden lg:block" size="28" />
+              </div>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
 
   {/* Content Sections */}
-  <section class="py-20">
+  <section>
     <div class="container mx-auto px-4">
       <div class="space-y-24">
-        {sections.map((section, index) => (
-          <div
-            id={section.id}
-            class={`grid md:grid-cols-2 gap-12 items-center ${
-              index % 2 === 1 ? "md:grid-flow-col-dense" : ""
-            }`}
-          >
-            <div class={`space-y-6 ${index % 2 === 1 ? "md:col-start-2" : ""}`}>
-              <div class="inline-block px-3 py-1 rounded-full bg-primary text-white text-sm font-medium">
-                {section.tag}
-              </div>
-              <h3 class="text-3xl font-bold">{section.title}</h3>
-              <p class="text-gray-400 text-lg">{section.description}</p>
-              {/* <div class="space-y-3">
+        {
+          sections.map((section, index) => (
+            <div id={section.id} class="py-20">
+              <div
+                class={`grid md:grid-cols-2 gap-12 items-center ${
+                  index % 2 === 1 ? "md:grid-flow-col-dense" : ""
+                }`}
+              >
+                <div
+                  class={`space-y-6 ${index % 2 === 1 ? "md:col-start-2" : ""}`}
+                >
+                  <div class="inline-block px-3 py-1 rounded-full bg-primary text-white text-sm font-medium">
+                    {section.tag}
+                  </div>
+                  <h3 class="text-3xl font-bold">{section.title}</h3>
+                  <p class="text-gray-400 text-lg">{section.description}</p>
+                  {/* <div class="space-y-3">
                 {section.links?.map((link) => (
                   <a href="#" class="text-blue-400 hover:text-blue-300 font-medium block">
                     {link}
                   </a>
                 ))}
               </div> */}
-              {section.stats?.map((stat) => (
-                <div class="text-2xl font-bold text-green-400">{stat}</div>
-              ))}
+                  {section.stats?.map((stat) => (
+                    <div class="text-2xl font-bold text-green-400">{stat}</div>
+                  ))}
+                </div>
+                <div
+                  class={`relative rounded-lg overflow-hidden ${
+                    index % 2 === 1 ? "md:col-start-1" : ""
+                  }`}
+                >
+                  <Image
+                    width={900}
+                    height={643}
+                    src={section.image}
+                    alt={section.title}
+                    class="object-cover"
+                  />
+                </div>
+              </div>
             </div>
-            <div
-              class={`relative rounded-lg overflow-hidden ${
-                index % 2 === 1 ? "md:col-start-1" : ""
-              }`}
-            >
-              <Image
-                width={900}
-                height={643}
-                src={section.image}
-                alt={section.title}
-                class="object-cover"
-              />
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>

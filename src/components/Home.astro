@@ -158,12 +158,12 @@ const sections = [
   </section>
 
   {/* Content Sections */}
-  <section>
+  <section class="py-20">
     <div class="container mx-auto px-4">
       <div class="space-y-24">
         {
           sections.map((section, index) => (
-            <div id={section.id} class="py-20">
+            <div id={section.id} class="pt-20">
               <div
                 class={`grid md:grid-cols-2 gap-12 items-center ${
                   index % 2 === 1 ? "md:grid-flow-col-dense" : ""

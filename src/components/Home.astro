@@ -1,70 +1,112 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import replay from "../../src/assets/replay-page.png";
 import hero from "../../src/assets/hero.png";
+import {
+  IconLocationFilled,
+  IconCornerRightDown,
+  IconArrowDown,
+} from "@tabler/icons-react";
+
 const features = [
-  { title: "GPS EN TIEMPO REAL" },
-  { title: "OPTIMIZACIÓN" },
-  { title: "PRODUCTIVIDAD" },
-  { title: "PROTECCIÓN" },
+  {
+    title: "Ubicación en tiempo real",
+    id: "ubicacion-en-tiempo-real",
+    icon: IconLocationFilled,
+  },
+  {
+    title: "Reportes de uso",
+    id: "reportes-de-uso",
+    icon: IconLocationFilled,
+  },
+  {
+    title: "Mantenimientos",
+    id: "mantenimientos",
+    icon: IconLocationFilled,
+  },
+  {
+    title: "Notificaciones por eventos",
+    id: "notificaciones-por-eventos",
+    icon: IconLocationFilled,
+  },
+  {
+    title: "Geocercas",
+    id: "geocercas",
+    icon: IconLocationFilled,
+  },
 ];
 
 const sections = [
   {
-    tag: "GPS EN TIEMPO REAL",
-    title: "Rastreo y geocercas. Sin complicaciones.",
+    id: "ubicacion-en-tiempo-real",
+    tag: "Ubicación en tiempo real",
+    title: "Monitorea tu flota con precisión en cada movimiento",
     description:
-      "Mejora el movimiento de carga y el servicio al cliente con rastreo GPS y geocercas inteligentes. Simple, rápido y preciso.",
-    links: ["Explora el rastreo GPS >"],
-    stats: ["80% menos errores de salida"],
+      "Observa el recorrido de tus vehículos minuto a minuto gracias a nuestra tecnología GPS avanzada y geocercas personalizadas. Disfruta de un control total de tus rutas para optimizar entregas y garantizar la seguridad de tus activos.",
+    links: ["Explora el rastreo >", "Más información >"],
+    stats: ["80% menos errores en salida"],
     image: replay,
     logo: "/placeholder.svg",
   },
   {
-    tag: "OPTIMIZACIÓN",
-    title: "Diagnóstico de vehículos al instante",
+    id: "reportes-de-uso",
+    tag: "Reportes de uso",
+    title: "Transforma datos en decisiones acertadas",
     description:
-      "Obtén insights sobre el rendimiento de tus vehículos y anticipa problemas de mantenimiento. Datos en tiempo real para decisiones inmediatas.",
-    links: ["Mantenimiento inteligente >", "Inspecciones simplificadas >"],
-    stats: ["30% de reducción en costos de vehículos"],
+      "Accede a reportes interactivos y visuales que te ofrecen un análisis profundo del desempeño de tu flota en tiempo real. Con información clara y precisa, identifica oportunidades de mejora y reduce los costos operativos de manera inteligente.",
+    links: ["Ver reportes >", "Descubre más >"],
+    stats: ["60% menos errores"],
     image: replay,
     logo: "/placeholder.svg",
   },
   {
-    tag: "PRODUCTIVIDAD",
-    title: "Automatización que funciona",
+    id: "mantenimientos",
+    tag: "Mantenimientos",
+    title: "Mantenimientos proactivos para una flota siempre operativa",
     description:
-      "Optimiza la comunicación entre conductores y administración. Flujos de trabajo automatizados que realmente ahorran tiempo.",
-    links: ["Gestión de conductores >", "Fleet App >", "Alertas y reportes >"],
-    stats: ["40 horas/semana de trabajo manual eliminadas"],
+      "Anticipa problemas y maximiza la vida útil de tus vehículos con alertas automatizadas y planes de mantenimiento basados en datos. Cuida tu inversión y mantén a tu equipo siempre en movimiento con un sistema que piensa en el futuro.",
+    links: ["Planificar mantenimiento >", "Ver historial >"],
+    stats: ["50% más eficiencia"],
     image: replay,
     logo: "/placeholder.svg",
   },
   {
-    tag: "PROTECCIÓN",
-    title: "Seguridad sin esfuerzo",
+    id: "notificaciones-por-eventos",
+    tag: "Notificaciones",
+    title: "Alertas inteligentes para una operación sin sorpresas",
     description:
-      "Define zonas de riesgo y activa alertas inteligentes. Protege tu flota sin complicaciones.",
-    links: ["Botón de Pánico >", "Inmovilizador de Motor 2.0 >"],
+      "Recibe notificaciones personalizadas al instante para mantener a tu equipo siempre informado. Con alertas precisas, actúa de inmediato ante cualquier evento, garantizando la continuidad y seguridad en cada operación.",
+    links: ["Configurar alertas >", "Historial de eventos >"],
+    stats: ["40% respuesta más rápida"],
     image: replay,
+    logo: "/placeholder.svg",
+  },
+  {
+    id: "geocercas",
+    tag: "Geocercas",
+    title: "Define límites seguros y optimiza tus rutas",
+    description:
+      "Crea zonas geográficas personalizadas para controlar la entrada y salida de tus vehículos. Recibe avisos automáticos al traspasar límites, asegurando la integridad de tus rutas y reduciendo riesgos, mientras mejoras la eficiencia operativa.",
+    links: ["Configurar geocercas >", "Ver zonas definidas >"],
+    stats: ["70% rutas optimizadas"],
+    image: replay,
+    logo: "/placeholder.svg",
   },
 ];
----
 
+---
 <main class="min-h-screen">
   {/* Hero Section */}
   <section class="container mx-auto px-4 py-20">
     <div class="grid gap-12 md:grid-cols-2 items-center">
       <div class="space-y-6">
         <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-            Estrategias clave para la máxima eficiencia.
+          Estrategias clave para la máxima eficiencia.
         </h1>
         <p class="text-lg text-gray-400">
           Optimiza costos, maximiza activos y domina la logística de última milla. Sin complicaciones.
         </p>
-        <button
-          class="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition duration-300"
-        >
+        <button class="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition duration-300">
           Empieza ahora
         </button>
       </div>
@@ -82,18 +124,28 @@ const sections = [
 
   {/* Features Section */}
   <section class="py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-center text-3xl font-bold mb-12">
-        Más que GPS. Una plataforma completa.
+    <div class="container max-w-6xl mx-auto px-4 text-pretty">
+      <h2 class="text-center text-3xl lg:text-5xl font-semibold mb-12">
+        Información confiable y datos que te ayudan a tomar decisiones.
       </h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {
-          features.map((feature) => (
-            <div class="p-6 rounded-lg border border-gray-800">
+      <div class="grid lg:grid-cols-5 md:grid-cols-5 gap-6">
+        {features.map((feature) => (
+          <a
+            href={`#${feature.id}`}
+            class="flex lg:flex-col justify-between items-center lg:justify-center lg:text-center"
+          >
+            <div class="flex lg:flex-col lg:justify-center items-center">
+              <div class="p-4">
+                <feature.icon className="text-primary" size={32} />
+              </div>
               <p class="font-medium">{feature.title}</p>
             </div>
-          ))
-        }
+            <div class="p-4">
+              <IconCornerRightDown className="lg:hidden" size="28" />
+              <IconArrowDown className="hidden lg:block" size="28" />
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -102,51 +154,57 @@ const sections = [
   <section class="py-20">
     <div class="container mx-auto px-4">
       <div class="space-y-24">
-        {
-          sections.map((section, index) => (
-            <div class={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}>
-              <div class={`space-y-6 ${index % 2 === 1 ? "md:col-start-2" : ""}`}>
-                <div class="inline-block px-3 py-1 rounded-full bg-primary text-white text-sm font-medium">
-                  {section.tag}
-                </div>
-                <h3 class="text-3xl font-bold">{section.title}</h3>
-                <p class="text-gray-400 text-lg">{section.description}</p>
-                <div class="space-y-3">
-                  {section.links?.map((link) => (
-                    <a href="#" class="text-blue-400 hover:text-blue-300 font-medium block">
-                      {link}
-                    </a>
-                  ))}
-                </div>
-                {section.stats?.map((stat) => (
-                  <div class="text-2xl font-bold text-green-400">{stat}</div>
+        {sections.map((section, index) => (
+          <div
+            id={section.id}
+            class={`grid md:grid-cols-2 gap-12 items-center ${
+              index % 2 === 1 ? "md:grid-flow-col-dense" : ""
+            }`}
+          >
+            <div class={`space-y-6 ${index % 2 === 1 ? "md:col-start-2" : ""}`}>
+              <div class="inline-block px-3 py-1 rounded-full bg-primary text-white text-sm font-medium">
+                {section.tag}
+              </div>
+              <h3 class="text-3xl font-bold">{section.title}</h3>
+              <p class="text-gray-400 text-lg">{section.description}</p>
+              <div class="space-y-3">
+                {section.links?.map((link) => (
+                  <a href="#" class="text-blue-400 hover:text-blue-300 font-medium block">
+                    {link}
+                  </a>
                 ))}
-                {section.logo && (
-                  <div class="relative h-8 w-32">
-                    <Image
-                      width={900}
-                      height={643}
-                      src={section.logo || "/placeholder.svg"}
-                      alt="Logo"
-                      class="object-contain"
-                    />
-                  </div>
-                )}
               </div>
-              <div class={`relative rounded-lg overflow-hidden ${index % 2 === 1 ? "md:col-start-1" : ""}`}>
-                <Image
-                  width={900}
-                  height={643}
-                  src={section.image}
-                  alt={section.title}
-                  class="object-cover"
-                />
-              </div>
+              {section.stats?.map((stat) => (
+                <div class="text-2xl font-bold text-green-400">{stat}</div>
+              ))}
+              {section.logo && (
+                <div class="relative h-8 w-32">
+                  <Image
+                    width={900}
+                    height={643}
+                    src={section.logo || "/placeholder.svg"}
+                    alt="Logo"
+                    class="object-contain"
+                  />
+                </div>
+              )}
             </div>
-          ))
-        }
+            <div
+              class={`relative rounded-lg overflow-hidden ${
+                index % 2 === 1 ? "md:col-start-1" : ""
+              }`}
+            >
+              <Image
+                width={900}
+                height={643}
+                src={section.image}
+                alt={section.title}
+                class="object-cover"
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 </main>
-
